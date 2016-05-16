@@ -26,9 +26,9 @@ public class Answer {
 		} catch (Exception e) {
 			throw e;
 		}finally{		
-			for (String answer: answers) {
-				System.out.println(answer);
-			}
+//			for (String answer: answers) {
+//				System.out.println(answer);
+//			}
 			in.close();
 		}
 	}

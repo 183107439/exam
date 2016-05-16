@@ -43,7 +43,7 @@ public class StuAnswer {
 				in=new BufferedReader(new FileReader(file));
 				String s;
 				while ((s=in.readLine())!=null) {
-					stuAnswers.add(s);					
+					stuAnswers.add(s);	
 				}				
 			}	
 			return stuAnswers;	
