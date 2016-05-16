@@ -10,7 +10,7 @@ import java.util.List;
 public class StuAnswer {
 	private List<String> stuNames;//使用集合存储学生姓名
 	private List<File> answersFiles;//使用集合保存所有学生的文件地址
-	private List<String> stuAnswers;//使用集合学生答案
+	private List<String> stuAnswers;//使用集合保存学生答案
 	
 	//初始化块
 	{

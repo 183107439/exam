@@ -8,42 +8,39 @@ public class Sys {
 	public static void main(String[] args) {
 		FileWriter out=null;
 		try {
-//			out=new FileWriter("H:\\JAVA\\grade.txt",Appendable);
+			//保存学生成绩文件
 			out=new FileWriter("H:\\JAVA\\grade.txt");
 			
+			//导入正确答案
 			Answer answer=new Answer();
 			List<String> answers=new ArrayList<String>();
 			answers=answer.getAnswer();
-//			for (String answerI: answers) {
-//				System.out.println(answerI);
-//			}
 			
+			//导入学生答案
 			StuAnswer stuAnswer=new StuAnswer();
-			List<String> stuNames=new ArrayList<String>();
-			List<String> stuAnswers=new ArrayList<String>();
+			List<String> stuNames=new ArrayList<String>();//学生名字
+			List<String> stuAnswers=new ArrayList<String>();//学生答案
 			stuAnswers=stuAnswer.getStuAnswer();
 			stuNames=stuAnswer.getStuNames();
-//			for (String string : stuAnswers) {
-//				System.out.println(string);
-//			}
-//			
+			
+			//批卷
 			for (int i = 0; i < answers.size(); i++) {
 				String tempAnswer=answers.get(i);
-//				System.out.println(tempAnswer);
 				String tempStuAnswer=stuAnswers.get(i);
-//				System.out.println(tempStuAnswer);
-				//System.out.println(stuAnswers.g);
-				double score=0;
-				int right=0;
+				double score=0;//分数
+				int right=0;//正确题数
+				//对照答案
 				for (int j = 0; j < tempAnswer.length(); j++) {
-//					System.out.println(tempAnswer.length());
 					char c1=tempAnswer.charAt(j);
 					char c2=tempStuAnswer.charAt(j);
-					if (c1==c2 || c1==(c2-22)) {
+					boolean c1_flag=(('a'<c1 && c1<'d')||(('A'<c1 && c1<'D')));
+					boolean c2_flag=(('a'<c2 && c2<'d')||(('A'<c2 && c2<'D')));
+					if (c1_flag && c2_flag && (c1==c2 || c1==(c2-22))) {
 						//System.out.println("AAAA");
 						right++;
 					}
 				}
+				//统计成绩
 				score=4*right;
 				out.append(stuNames.get(i));
 				out.append("  "+score+"\n");		
